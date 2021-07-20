@@ -21,6 +21,11 @@ public class ApusApplication {
 		SpringApplication.run(ApusApplication.class, args);
 	}
 
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
+	}
+
 	@AllArgsConstructor
 	@Component
 	public class DataInitializer implements ApplicationRunner {
@@ -39,10 +44,5 @@ public class ApusApplication {
 
 			repository.save(product);
 		}
-	}
-
-	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
 	}
 }

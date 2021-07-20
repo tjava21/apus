@@ -7,21 +7,19 @@ import br.com.cwi.apus.external.lyra.PaymentService;
 import br.com.cwi.apus.mapper.OrderMapper;
 import br.com.cwi.apus.repository.BasketRepository;
 import br.com.cwi.apus.service.order.CreateOrderService;
-import br.com.cwi.apus.utils.DomainUtils;
 import br.com.cwi.apus.web.response.order.OrderResponse;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static br.com.cwi.apus.utils.DomainUtils.*;
+import static br.com.cwi.apus.utils.DomainUtils.toExternalId;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class CheckoutBasketServiceTest {
 
     @InjectMocks
