@@ -4,19 +4,18 @@ import br.com.cwi.apus.domain.Product;
 import br.com.cwi.apus.mapper.ProductMapper;
 import br.com.cwi.apus.repository.ProductRepository;
 import br.com.cwi.apus.web.response.product.ProductResponse;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class FindProductsServiceTest {
 
     @InjectMocks
@@ -51,6 +50,6 @@ public class FindProductsServiceTest {
         Mockito.verify(mapper).toProductResponse(product2);
 
         // junit (verifica o valor)
-        Assert.assertEquals(2, results.size());
+        Assertions.assertEquals(2, results.size());
     }
 }

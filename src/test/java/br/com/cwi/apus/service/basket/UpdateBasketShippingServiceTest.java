@@ -3,16 +3,15 @@ package br.com.cwi.apus.service.basket;
 import br.com.cwi.apus.domain.Basket;
 import br.com.cwi.apus.repository.BasketRepository;
 import br.com.cwi.apus.web.request.basket.UpdateBasketShippingRequest;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import static br.com.cwi.apus.utils.DomainUtils.*;
+import static br.com.cwi.apus.utils.DomainUtils.toExternalId;
 
-@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class UpdateBasketShippingServiceTest {
 
     @InjectMocks
@@ -43,6 +42,5 @@ public class UpdateBasketShippingServiceTest {
         Mockito.verify(findBasketByIdService).getDomain(toExternalId(basket1.getId()));
         Mockito.verify(refreshBasketService).execute(basket1);
         Mockito.verify(repository).save(basket1);
-
     }
 }
