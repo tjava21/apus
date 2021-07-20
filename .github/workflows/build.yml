@@ -19,6 +19,6 @@ jobs:
     - name: Build and Test
       run: ./mvnw -B clean package
     - name: Sonar
-      run: ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      run: ./mvnw -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tjava21_apus -Dsonar.organization=tjava21 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
