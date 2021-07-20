@@ -2,17 +2,18 @@ name: CI Sonar
 on:
   push:
     branches:
-      - 'main'
-      - 'issue**'
-      - 'feat**'
-
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  sonar:
+  sonarcloud:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@v1.1.0
         with:
-          host: ${{ secrets.SONARQUBE_HOST }}
-          login: ${{ secrets.SONARQUBE_TOKEN }}
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
