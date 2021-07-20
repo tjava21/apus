@@ -16,5 +16,3 @@ jobs:
         with:
           host: ${{ secrets.SONARQUBE_HOST }}
           login: ${{ secrets.SONARQUBE_TOKEN }}
-          projectKey: 'tjava21_apus'
-          projectName: 'apus-ecommerce'
