@@ -1,9 +1,11 @@
-name: Main Workflow
+name: CI Sonar
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - 'main'
+      - 'issue**'
+      - 'feat**'
+
 jobs:
   sonar:
     runs-on: ubuntu-latest
@@ -14,5 +16,5 @@ jobs:
         with:
           host: ${{ secrets.SONARQUBE_HOST }}
           login: ${{ secrets.SONARQUBE_TOKEN }}
-          projectKey: "tjava21_apus"
-          projectName: "apus-ecommerce"
+          projectKey: 'tjava21_apus'
+          projectName: 'apus-ecommerce'
