@@ -1,13 +1,12 @@
 package br.com.cwi.apus.exception;
 
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
-@ResponseStatus(NOT_FOUND)
-public class NotFoundException extends RuntimeException {
+public class NotFoundException extends ResponseStatusException {
 
     public NotFoundException(String message) {
-        super(message + " not found");
+        super(NOT_FOUND, message + " not found");
     }
 }

@@ -1,13 +1,11 @@
 package br.com.cwi.apus.exception;
 
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-
-@ResponseStatus(INTERNAL_SERVER_ERROR)
-public class IntegrationException extends RuntimeException {
+public class IntegrationException extends ResponseStatusException {
 
     public IntegrationException(String message) {
-        super("failed to perform " + message);
+        super(HttpStatus.INTERNAL_SERVER_ERROR, "failed to perform " + message);
     }
 }
