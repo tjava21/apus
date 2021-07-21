@@ -37,3 +37,5 @@ app:
   lyra:
     company: ${LYRA_COMPANY:2222}
     url: ${LYRA_URL:https://apus-external.herokuapp.com/api/lyra/payment}
+  job:
+    time: 1200000
