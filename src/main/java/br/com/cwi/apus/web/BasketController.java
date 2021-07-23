@@ -1,12 +1,11 @@
 package br.com.cwi.apus.web;
 
 import br.com.cwi.apus.service.basket.*;
-import br.com.cwi.apus.web.request.basket.UpdateBasketPaymentRequest;
-import br.com.cwi.apus.web.request.basket.UpdateBasketShippingRequest;
 import br.com.cwi.apus.web.request.basket.UpdateBasketCustomerRequest;
 import br.com.cwi.apus.web.request.basket.UpdateBasketItemRequest;
+import br.com.cwi.apus.web.request.basket.UpdateBasketPaymentRequest;
+import br.com.cwi.apus.web.request.basket.UpdateBasketShippingRequest;
 import br.com.cwi.apus.web.response.basket.BasketResponse;
-import br.com.cwi.apus.web.response.order.OrderResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -23,7 +22,6 @@ public class BasketController {
     private UpdateBasketCustomerService updateBasketCustomerService;
     private UpdateBasketShippingService updateBasketShippingService;
     private UpdateBasketPaymentService updateBasketPaymentService;
-    private CheckoutBasketService checkoutBasketService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -60,8 +58,8 @@ public class BasketController {
         updateBasketPaymentService.execute(id, request);
     }
 
-    @PutMapping("/{id}/checkout")
-    public OrderResponse checkout(@PathVariable("id") String id) {
-        return checkoutBasketService.execute(id);
-    }
+//    @PutMapping("/{id}/checkout")
+//    public OrderResponse checkout(@PathVariable("id") String id) {
+//        return checkoutBasketService.execute(id);
+//    }
 }
