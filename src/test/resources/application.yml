@@ -22,5 +22,4 @@ app:
     company: ${LYRA_COMPANY:2222}
     url: ${LYRA_URL:https://apus-external.herokuapp.com/api/lyra/payment}
   order:
-    #url: ${ORDER_URL:https://apus-external.herokuapp.com/api}
-    url: ${ORDER_URL:http://localhost:8082/api/order}
+    url: ${ORDER_URL:https://apus-order.herokuapp.com/api/order}
