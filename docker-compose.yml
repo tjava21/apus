@@ -20,6 +20,15 @@ services:
       - pgadmin_data:/var/lib/pgadmin
     ports:
       - 9001:80
+
+  rabbitmq:
+    image: bitnami/rabbitmq:latest
+    volumes:
+      - rabbitmq_data:/bitnami
+    ports:
+      - 5672:5672
+      - 15672:15672
 volumes:
   apusdb_data:
   pgadmin_data:
+  rabbitmq_data:

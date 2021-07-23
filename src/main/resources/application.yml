@@ -4,21 +4,9 @@ server:
     context-path: /api
   error:
     include-message: always
+
 spring:
-#  mail:
-#    host: smtp.gmail.com
-#    port: 587
-#    protocol: smtp
-#    username: evertonz@gmail.com
-#    password: ${MY_PASSWORD}
-#    properties:
-#      mail:
-#        smtp:
-#          auth: true
-#          starttls:
-#            enable: true
-#            required: true
-#          quitwait: false
+
   datasource:
     url: jdbc:postgresql://localhost:5432/apus
     username: apus
@@ -26,16 +14,22 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:user}
+    password: ${RABBITMQ_PASSWORD:bitnami}
+
 logging:
   level:
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
 app:
   cetus:
     url: ${CETUS_URL:https://apus-external.herokuapp.com/api/cetus/shipping}
     zip: ${CETUS_ZIP:11111111}
   lyra:
-    company: ${LYRA_COMPANY:2222}
     url: ${LYRA_URL:https://apus-external.herokuapp.com/api/lyra/payment}
-  order:
-    url: ${ORDER_URL:https://apus-order.herokuapp.com/api/order}
+    company: ${LYRA_COMPANY:2222}
