@@ -63,7 +63,7 @@ public class CheckoutBasketService {
                 .items(basket.getItems().stream()
                         .map(o ->
                                 CreateOrderRequest.CreateOrderItemRequest.builder()
-                                        .id(o.getId())
+                                        .id(o.getProduct().getId())
                                         .quantity(o.getQuantity())
                                         .description(o.getProduct().getDescription())
                                         .volume(o.getProduct().getVolume())
